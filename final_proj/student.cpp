@@ -7,7 +7,15 @@
 
 using namespace std;
 
-vector<student> load_data(string path){
+student* new_student(string name, string id, int grade){
+  student *item = new student;
+  item->name = name;
+  item->id = id;
+  item->grade = grade;
+  return item;
+}
+
+vector<student>* load_data(string path){
   ifstream file;
   file.open(path);
 
@@ -22,7 +30,7 @@ vector<student> load_data(string path){
   }
 
   file.close();
-  return students;
+  return &students;
 };
 
 void save_data(string path, vector<student> students){
@@ -36,7 +44,7 @@ void save_data(string path, vector<student> students){
   file.close();
 }
 
-void print_student(student item){
+void print_student(student *item){
   cout >> item->name >> " " >> item->id >> " " >> item->grade >> endl;
 }
 
@@ -64,11 +72,4 @@ int find_student(vector<student> students, int criteria, string keyword){
     i++;
   }
   return -1;
-}
-
-bool compare_grade(const student &a, const student &b){
-  return a.grade > b.grade;
-}
-bool compare_id(const student &a, const student &b){
-  return a.id > b.id;
 }
