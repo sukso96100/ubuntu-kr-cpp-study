@@ -1,4 +1,4 @@
-Vitalik A001 80
-Hongfei B002 90
 Zuke A202 70
+Vitalik A001 80
 Duke C893 83
+Hongfei B002 90

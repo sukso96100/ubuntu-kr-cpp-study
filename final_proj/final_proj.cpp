@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "student.h"
 
 using namespace std;
@@ -38,7 +39,6 @@ int main(){
         students.push_back(*new_item);
         break;
       case 1:
-
         cout << "검색 기준 : (0)이름, (1)학번 >";
         cin >> criteria;
 
@@ -47,7 +47,7 @@ int main(){
 
         index = find_student(students, criteria, keyword);
         print_student(&students[index]);
-        students.erase(students.begin()+index-1);
+        students.erase(students.begin()+index);
         cout << index << "번째 학생 삭제됨." << endl;
         break;
       case 2:
@@ -64,10 +64,11 @@ int main(){
         sort(students.begin(), students.end());
         break;
       case 4:
+        to_abcdf(students);
         break;
       case 5:
         save_data(path, students);
-        break;
+        return 0;
     }
   }
 

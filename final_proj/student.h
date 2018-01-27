@@ -1,5 +1,6 @@
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -20,3 +21,4 @@ void save_data(string path, vector<student> students);
 void print_student(student *item);
 void print_students(vector<student> students);
 int find_student(vector<student> students, int criteria, string keyword);
+void to_abcdf(vector<student> students);
